@@ -5,6 +5,7 @@
 		"start": "bun run app/main.ts"
 	},
 	"devDependencies": {
+		"@flydotio/dockerfile": "^0.5.9",
 		"@types/bun": "latest"
 	},
 	"peerDependencies": {
