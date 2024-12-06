@@ -196,7 +196,7 @@ async function generateResponsesFromCards(cards: string[], userQuestion?: string
 	for (const buffer of cardsBuffers) {
 		const response = await generateResponseFromImageBuffer(
 			buffer,
-			`Generate tarot reading response based on card you are reading. Answer as if you are giving this card as tarot master. ${questionOrNull}`,
+			`Generate tarot reading response based on card you are reading. Use magic emoji. Answer as if you are giving this card as tarot master. ${questionOrNull}`,
 		);
 		responses.push(response);
 	}
@@ -242,7 +242,7 @@ export async function botWorkflow(event: Api.TypeUpdate): Promise<void> {
 		const { message } = event;
 
 		if ('message' in message) {
-			const userId = message?.peerId?.userId?.toString();
+			const userId = (message.peerId as any).userId.toString();
 			const text = message.message.trim().normalize();
 
 			text === '/start' ? await sendGreetings(userId) : await handleReply(userId, text);

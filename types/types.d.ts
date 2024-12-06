@@ -2,7 +2,9 @@ declare global {
 	interface ProcessEnv {
 		[key: string]: string;
 	}
-	type Lang = 'eng' | 'ukr' | 'rus';
+	interface UserPeer {
+		userId: string;
+	}
 }
 
 export {};
